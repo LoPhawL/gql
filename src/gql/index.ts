@@ -1,5 +1,6 @@
 import { ApolloServer } from "@apollo/server";
-import { userResolvers, userSchema } from "./user.gql";
+import { userSchema } from "./schema/user.schema";
+import { userResolvers } from "./resolvers/user.resolver";
 
 const indexSchema = `
   type Query {

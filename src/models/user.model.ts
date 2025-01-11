@@ -42,7 +42,7 @@ const UserSchema: Schema<IUser> = new Schema<IUser>(
   }
 );
 
-UserSchema.index({ email: 1 }, { unique: true });
+// UserSchema.index({ email: 1 }, { unique: true });
 
 // Create a Mongoose model
 const UserModel: Model<IUser> = mongoose.model<IUser>('User', UserSchema);
