@@ -1,6 +1,8 @@
 import { ApolloServer } from "@apollo/server";
 import { userSchema } from "./schema/user.schema";
 import { userResolvers } from "./resolvers/user.resolver";
+import { groupsSchema } from "./schema/groups.schema";
+import { groupsResolvers } from "./resolvers/groups.resolver";
 
 const indexSchema = `
   type Query {
@@ -19,12 +21,14 @@ const indexResolvers = {
 
 const typeDefs = [
     indexSchema,
-    userSchema
+    userSchema,
+    groupsSchema
 ];
 
 const resolvers = [
     indexResolvers,
-    userResolvers
+    userResolvers,
+    groupsResolvers
 ];
 
 export const aplServer = new ApolloServer({

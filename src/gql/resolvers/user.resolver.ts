@@ -2,20 +2,17 @@ import UserModel, { IUser } from "../../models/user.model";
 
 export const userResolvers = {
     Query: {
-        user: async (parent: {}, args: { userId: string }, context: any, info: any) => {
+        users: async (parent: {}, { ids }: { ids: string[] }, context: any, info: any) => {
 
             // skipped validations
-            return await UserModel.findById(args.userId);
+            return await UserModel.find({ _id: ids });
         }
     },
     Mutation: {
         registerUser: async (parent: {}, args: { registerUserInput: IUser }, context: any, info: any) => {
             
             // skipped validations
-
-            const newUser = await (new UserModel(args.registerUserInput).save());
-            
-            return newUser;
+            return await (new UserModel(args.registerUserInput).save());
         }
     }
 };

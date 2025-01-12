@@ -18,7 +18,7 @@ export const userSchema = `
         """
         Returns the user details for the input userid. Returns null if the user doesn't exist.
         """
-        user(userId: ID!): User
+        users(ids: [ID!]!): [User]
     }
     
     type Mutation {
